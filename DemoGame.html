@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Box2dWeb example</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                width: 100%;
+                height: 100%;
+            }
+            canvas {
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="960" height="680" >
+            Your browser doesn't support the HTML5 <code>&lt;canvas&gt;</code> element.
+        </canvas>
+    </body>
+    <script src="lib/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="lib/Box2d/Box2dWeb-2.1.a.3.js"></script>
+    <script type="text/javascript" src="InputHandler.js"></script>
+    <script type="text/javascript" src="Player.js"></script>
+    <script type="text/javascript" src="DemoGame.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var game = new DemoGame({ useDebugDraw: true });
+            game.init();       
+        });
+    </script>
+<html>
