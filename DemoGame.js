@@ -1,10 +1,10 @@
 // Defines the game object.  Create an instance of the object and call init()
 // to start playing.
 function DemoGame(settings){
-	this.world;
-	this.player1;
-	this.player2;
 	this.settings = settings;
+	this.world;
+	this.entities = [];
+	this.renderer;
 }
 
 DemoGame.prototype = (function() {
@@ -27,54 +27,6 @@ DemoGame.prototype = (function() {
         ,   canvas = $('#canvas')
 		;	context = canvas.get(0).getContext('2d');
 
-	// Creates the physical ground for the player to walk on.
-	// => void
-	function createWalls() {
-		// Ground
-		createWall.call(this, LEVEL_WIDTH / 2, LEVEL_HEIGHT - 5, LEVEL_WIDTH, WALL_THICKNESS, true);
-
-		// Left wall
-		createWall.call(this, 5, LEVEL_HEIGHT / 2, WALL_THICKNESS, LEVEL_HEIGHT,false);
-
-		// Right wall
-		createWall.call(this, LEVEL_WIDTH - 5, LEVEL_HEIGHT / 2, WALL_THICKNESS, LEVEL_HEIGHT, false);
-	};
-
-	// Creates a wall at the given x, y with the given width/height.
-	// All parameters are scaled internally.
-	// float float float float => void
-	function createWall(x, y, width, height, isGround) {
-		var fixDef = new b2FixtureDef;
-		fixDef.density = 1.0;
-		fixDef.friction = isGround ? 0.5 : 0.0;
-		fixDef.restitution = 0.0;
-
-		var bodyDef = new b2BodyDef;
-		bodyDef.type = b2Body.b2_staticBody;
-		       
-		// positions the center of the object (not upper left!)
-		bodyDef.position.x = x / SCALE;
-		bodyDef.position.y = y / SCALE;
-
-		fixDef.shape = new b2PolygonShape;
-       
-		// half width, half height.
-		fixDef.shape.SetAsBox(width / 2 / SCALE, height / 2 / SCALE);
-		fixDef.userData = { isGround: isGround };
-
-		this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-	}
-
-	// Creates a player object with the given parameters.
-	// Warning: Do not use the same keys for multiple players.
-	// b2Vec2 int int int => void
-	function createPlayer(position, leftKey, rightKey, jumpKey) {
-		var newPlayer = new Player(position, leftKey, rightKey, jumpKey);
-		newPlayer.init(this.world);
-
-		return newPlayer;
-	};	
-
     function setupDebugDraw() {
 	    //setup debug draw
 	    var debugDraw = new b2DebugDraw();
@@ -89,45 +41,50 @@ DemoGame.prototype = (function() {
     function setupContactListeners() {
     	var contactListener = new b2ContactListener();
 	    contactListener.BeginContact = function(contact) {
-	    	var dataA = contact.GetFixtureA().GetUserData();
-	    	var dataB = contact.GetFixtureB().GetUserData();
-	    	if (dataA.isPlayer && dataB.isGround) {
-    			dataA.touchingGround = true;
-	    	}
-	    	else if (dataB.isPlayer && dataA.isGround) {
-	    		dataB.touchingGround = true;
-	    	}
+	    	var entityA = contact.GetFixtureA().GetUserData();
+	    	var entityB = contact.GetFixtureB().GetUserData();
+	    	entityA.collided(entityB);
+	    	entityB.collided(entityA);
 	    }
 	    contactListener.EndContact = function(contact) {
-	    	var dataA = contact.GetFixtureA().GetUserData();
-	    	var dataB = contact.GetFixtureB().GetUserData();
-	    	if (dataA.isPlayer && dataB.isGround) {
-    			dataA.touchingGround = false;
-	    	}
-	    	else if (dataB.isPlayer && dataA.isGround) {
-	    		dataB.touchingGround = false;
-	    	}
+	    	var entityA = contact.GetFixtureA().GetUserData();
+	    	var entityB = contact.GetFixtureB().GetUserData();
+	    	entityA.seperated(entityB);
+	    	entityB.seperated(entityA);
 	    }
 
 	    this.world.SetContactListener(contactListener);
     }
 
     function setupEntities() {
-    	createWalls.call(this);
-	    player1 = createPlayer.call(this, { 
+    	// Ground
+		this.entities.push(new Wall(LEVEL_WIDTH / 2, LEVEL_HEIGHT - 5, LEVEL_WIDTH, WALL_THICKNESS, true));
+
+		// Left wall
+		this.entities.push(new Wall(5, LEVEL_HEIGHT / 2, WALL_THICKNESS, LEVEL_HEIGHT, false));
+
+		// Right wall
+		this.entities.push(new Wall(LEVEL_WIDTH - 5, LEVEL_HEIGHT / 2, WALL_THICKNESS, LEVEL_HEIGHT, false));
+
+		// Player 1
+	    this.entities.push(new Player(
+	    	{ 
 		    	x: (LEVEL_WIDTH / 3) / SCALE,
 		    	y: (LEVEL_HEIGHT - 100) / SCALE
 		    },
 	    	65,  // a
 	    	68,  // d
-	    	32); // space
-	    player2 = createPlayer.call(this, { 
+	    	32)); // space
+
+	    // Player 2	    
+	    this.entities.push(new Player(
+	    	{ 
 		    	x: (LEVEL_WIDTH  * 2 / 3) / SCALE,
 		    	y: (LEVEL_HEIGHT - 100) / SCALE
 		    },
 	    	37,  // a
 	    	39,  // d
-	    	38); // space
+	    	38)); // space
     }
 
 	return {
@@ -144,8 +101,7 @@ DemoGame.prototype = (function() {
 			this.world.ClearForces();
 
 			// Update game components 
-			player1.update();
-			player2.update();
+			this.entities.forEach(function(entity){ entity.update(); });
 		},
 
 		// The main draw loop which will be called on each frame tick.
@@ -153,6 +109,8 @@ DemoGame.prototype = (function() {
 		draw: function() {			
 		    if (this.settings.useDebugDraw)
 				this.world.DrawDebugData();
+
+			this.entities.forEach(function(entity){ entity.draw(); });
 		},
 
 		// This is the game initialization.  At the end of init, the game object
@@ -165,9 +123,13 @@ DemoGame.prototype = (function() {
 		        ,   true                 //allow sleep
 		    );	    		    
 		    setupEntities.call(this);
+		    var that = this;
+		    this.entities.forEach(function(entity) { entity.init(that.world) });
 
 		    // Init game components
 		    InputHandler.prototype.init();
+		    renderer = new WebGLRenderer(this.entities);
+		    renderer.init();
 	    	setupDebugDraw.call(this);	
 		    setupContactListeners.call(this);
 

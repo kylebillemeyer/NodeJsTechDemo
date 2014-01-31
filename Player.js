@@ -118,6 +118,28 @@ Player.prototype = (function() {
 			this.body.ApplyImpulse(
 				new b2Vec2(impulse, 0), 
 				this.body.GetWorldCenter());
-		}
+		},
+
+		// Callback invoked when this entity collides with another.
+        // contact: The entity this entity is making contact with.
+        // entity => void
+        collided: function(contact){
+        	if (contact.isGround)
+        		this.touchingGround = true;
+        },
+
+        // Callback invoked when this entity seperates from another 
+        // it has collided with.
+        // contact: The entity this entity was making contact with.
+        seperated: function(contact){
+        	if (contact.isGround)
+        		this.touchingGround = false;
+        },
+
+        // Draw the player each tick.
+        // => void
+        draw: function(){
+
+        }
 	}
 })();
