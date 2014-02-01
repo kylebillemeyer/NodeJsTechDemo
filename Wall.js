@@ -1,9 +1,18 @@
+// Creates the wall object
+// Initial world x position (center of Wall), in pixels
+// Initial world y position (center of Wall), in pixels
+// Width, in pixels
+// Height, in pixels
+// True if this Wall is a ground unit, otherwise false.
+// float float float float bool => Wall
 function Wall(x, y, width, height, isGround) {
     this.isGround = isGround;
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
+    this.x = x / Settings.scale;
+    this.y = y / Settings.scale;
+    this.width = width / Settings.scale;
+    this.height = height / Settings.scale;
+    this.halfWidth = this.width / 2;
+    this.halfHeight = this.height / 2;
     this.body;
     this.fix;
 }
@@ -13,7 +22,6 @@ Wall.prototype = (function(){
         ,   FRICTION = 0.0
         ,   GROUND_FRICTION = 0.5
         ,   RESTITUTION = 0.0
-        ,   SCALE = 30
         ;
     var     b2Vec2 = Box2D.Common.Math.b2Vec2
         ,   b2BodyDef = Box2D.Dynamics.b2BodyDef
@@ -42,13 +50,13 @@ Wall.prototype = (function(){
         bodyDef.type = b2Body.b2_staticBody;
                
         // positions the center of the object (not upper left!)
-        bodyDef.position.x = this.x / SCALE;
-        bodyDef.position.y = this.y / SCALE;
+        bodyDef.position.x = this.x;
+        bodyDef.position.y = this.y;
 
         fixDef.shape = new b2PolygonShape;
        
         // half width, half height.
-        fixDef.shape.SetAsBox(this.width / 2 / SCALE, this.height / 2 / SCALE);
+        fixDef.shape.SetAsBox(this.width / 2, this.height / 2);
         fixDef.userData = this;
 
         this.body = world.CreateBody(bodyDef)
@@ -85,9 +93,9 @@ Wall.prototype = (function(){
         },
 
         // Draws the wall entity each tick.
-        // => void
-        draw: function(){
-
+        // WebGLRenderer => void
+        draw: function(renderer){
+            renderer.drawRect(this.x, this.y, this.halfWidth, this.halfHeight);
         }
     }
 })();

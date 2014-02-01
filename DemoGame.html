@@ -17,35 +17,55 @@
     </head>
     <body>
         <canvas id="canvas" width="960" height="680" >
-            Your browser doesn't support the HTML5 <code>&lt;canvas&gt;</code> element.
         </canvas>
     </body>
     <script src="lib/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="lib/Box2d/Box2dWeb-2.1.a.3.js"></script>
     <script type="text/javascript" src="InputHandler.js"></script>
+    <script type="text/javascript" src="webgl-utils.js"></script>
+    <script type="text/javascript" src="WebGLRenderer.js"></script>
+    <script type="text/javascript" src="PhysicsManager.js"></script>
     <script type="text/javascript" src="Player.js"></script>
     <script type="text/javascript" src="Wall.js"></script>
-    <script type="text/javascript" src="WebGLRenderer.js"></script>
     <script type="text/javascript" src="DemoGame.js"></script>
     <script type="text/javascript">
+        var Settings = { 
+            useDebugDraw: true,
+            scale: 30,
+            canvasWidth: 960,
+            canvasHeight: 680
+        };
+
         $(document).ready(function() {
-            var game = new DemoGame({ useDebugDraw: true });
+            var game = new DemoGame();
             game.init();       
         });
     </script>
-    <script id="shader-fs" type="x-shader/x-fragment">
-        void main(void) {
-            gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-        }
-    </script>
-    <script id="shader-vs" type="x-shader/x-vertex">
-        attribute vec3 aVertexPosition;
+    <script id="2d-fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
 
-        uniform mat4 uMVMatrix;
-        uniform mat4 uPMatrix;
-      
-        void main(void) {
-            gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-        }
+    uniform vec4 u_color;
+
+    void main() {
+        gl_FragColor = u_color;
+    }
+    </script>
+    <script id="2d-vertex-shader" type="x-shader/x-vertex">
+    attribute vec2 a_position;
+
+    uniform vec2 u_resolution;
+
+    void main() {
+        // convert the rectangle from pixels to 0.0 to 1.0
+        vec2 zeroToOne = a_position / u_resolution;
+
+        // convert from 0->1 to 0->2
+        vec2 zeroToTwo = zeroToOne * 2.0;
+
+        // convert from 0->2 to -1->+1 (clipspace)
+        vec2 clipSpace = zeroToTwo - 1.0;
+
+        gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+    }
     </script>
 <html>

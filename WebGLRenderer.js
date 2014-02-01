@@ -1,66 +1,118 @@
 function WebGLRenderer(entities) {
     this.entities = entities;
+    this.positionLocation;
+    this.colorLocation;
+    this.buffer;
+    this.gl;
 }
 
 WebGLRenderer.prototype = (function(){
-    var gl
-        , canvas = document.getElementById('canvas')
-        ;
-
-    function initGL(){
-        try {
-            // Try to grab the standard context. If it fails, fallback to experimental.
-            gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-        }
-        catch(e) {}
-          
-        // If we don't have a GL context, give up now
-        if (!gl) {
-            alert("Unable to initialize WebGL. Your browser may not support it.");
-            gl = null;
-        }
-
-        if (gl){
-            gl.clearColor(0.0, 0.0, 0.0, 1.0);
-            gl.enable(g1.DEPTH_TEST);
-            gl.depthFunc(gl.LEQUAL);
-            gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
-        }
-    }
-
-    function initShaders(){
-        var fragmentShader = getShader(gl, "shader-fs");
-        var vertexShader = getShader(gl, "shader-vs");
-      
-        // Create the shader program      
-        shaderProgram = gl.createProgram();
-        gl.attachShader(shaderProgram, vertexShader);
-        gl.attachShader(shaderProgram, fragmentShader);
-        gl.linkProgram(shaderProgram);
-      
-        // If creating the shader program failed, alert      
-        if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-            alert("Unable to initialize the shader program.");
-        }
-      
-        gl.useProgram(shaderProgram);
-      
-        vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
-        gl.enableVertexAttribArray(vertexPositionAttribute);
-    }
+    var canvas = document.getElementById('canvas');
 
 	return {
 		constructor: WebGLRenderer,
 		
 		init: function(){		
-            initGL.call(this);
-            if (gl){
-                initShaders.call(this);
-            }				
+            // Get A WebGL context
+            this.gl = getWebGLContext(canvas);
+            if (!this.gl) {
+                return;
+            }
+
+            // setup GLSL program
+            var vertexShader = createShaderFromScriptElement(this.gl, "2d-vertex-shader");
+            var fragmentShader = createShaderFromScriptElement(this.gl, "2d-fragment-shader");
+            var program = createProgram(this.gl, [vertexShader, fragmentShader]);
+            this.gl.useProgram(program);
+
+            // look up where the vertex data needs to go.
+            this.positionLocation = this.gl.getAttribLocation(program, "a_position");
+            this.colorLocation = this.gl.getUniformLocation(program, "u_color");
+
+            // set the resolution
+            var resolutionLocation = this.gl.getUniformLocation(program, "u_resolution");
+            this.gl.uniform2f(resolutionLocation, Settings.canvasWidth, Settings.canvasHeight);			
+
+            // setup a rectangle from 10,20 to 80,30 in pixels
+            this.buffer = this.gl.createBuffer();
+            this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.buffer);            
+
+            this.gl.enableVertexAttribArray(this.positionLocation);
+            this.gl.vertexAttribPointer(this.positionLocation, 2, this.gl.FLOAT, false, 0, 0);
+
+            // Set a random color.
+            /*this.gl.uniform4f(this.colorLocation, 0.0, 1.0, 0.0, 1);
+
+            this.gl.bufferData(
+                this.gl.ARRAY_BUFFER, 
+                new Float32Array([
+                    0, 670,
+                    960, 670,
+                    0, 680,
+                    0, 680,
+                    960, 670,
+                    960, 680]), 
+                this.gl.STATIC_DRAW);
+
+            this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
+
+            this.gl.bufferData(
+                this.gl.ARRAY_BUFFER, 
+                new Float32Array([
+                    0, 0,
+                    10, 0,
+                    0, 680,
+                    0, 680,
+                    10, 0,
+                    10, 680]), 
+                this.gl.STATIC_DRAW);
+            this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);*/
 		},
 
 		draw: function(){
+            this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
 
-		}
+            var that = this;
+            this.entities.forEach(function(entity){ entity.draw(that); });
+		},
+
+        // Draws a rectangle on the WebGL canvas using the given position 
+        // and dimensions.
+        // x: Center x coordinate in physics units
+        // y: Center y coordinate in physics units
+        // halfWidth: Half the desired width in physics units
+        // halfHeight: Half the desired height in physics units
+        // color: An RGBA hash of the format { r: float, g: float, b: float, a: float }
+        // float float float float color => void
+        drawRect: function(x, y, halfWidth, halfHeight, color){
+            var topLeftX = (x - halfWidth) * Settings.scale;
+            var topLeftY = (y + halfHeight) * Settings.scale;
+
+            var topRightX = (x + halfWidth) * Settings.scale;
+            var topRightY = (y + halfHeight) * Settings.scale;
+
+            var botRightX = (x + halfWidth) * Settings.scale;
+            var botRightY = (y - halfHeight) * Settings.scale;
+
+            var botLeftX = (x - halfWidth) * Settings.scale;
+            var botLeftY = (y - halfHeight) * Settings.scale;
+
+            this.gl.bufferData(
+                this.gl.ARRAY_BUFFER, 
+                new Float32Array([
+                    topRightX, topRightY,
+                    topLeftX, topLeftY,
+                    botRightX, botRightY,
+                    botRightX, botRightY,
+                    topLeftX, topLeftY,
+                    botLeftX, botLeftY]), 
+                this.gl.STATIC_DRAW);
+
+            if (!color)
+                color = { r: 0.0, g: 1.0, b: 0.0, a: 1.0 };
+            
+            this.gl.uniform4f(this.colorLocation, color.r, color.g, color.b, color.a);
+            this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
+        }
 	}
 })();
