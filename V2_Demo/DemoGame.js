@@ -87,7 +87,7 @@ DemoGame.prototype = (function() {
 		    // Init game components
 		    InputHandler.prototype.init();
 
-		    this.physicsManager = new PhysicsManager(this.entities);
+		    this.physicsManager = new Box2DPhysicsManager(this.entities);
 		    this.physicsManager.init(this.world);
 
 		    this.renderer = new WebGLRenderer(this.entities);

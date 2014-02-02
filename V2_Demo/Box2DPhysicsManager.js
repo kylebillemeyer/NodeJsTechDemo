@@ -1,9 +1,9 @@
-function PhysicsManager(entities){
+function Box2DPhysicsManager(entities){
     this.entities = entities;
     this.world;
 }
 
-PhysicsManager.prototype = (function(){
+Box2DPhysicsManager.prototype = (function(){
     var     b2Vec2 = Box2D.Common.Math.b2Vec2
         ,   b2BodyDef = Box2D.Dynamics.b2BodyDef
         ,   b2Body = Box2D.Dynamics.b2Body
@@ -47,7 +47,7 @@ PhysicsManager.prototype = (function(){
     }
 
     return {
-        constructor: PhysicsManager,
+        constructor: Box2DPhysicsManager,
 
         init: function(world){
             this.world = world; 
