@@ -9,7 +9,7 @@ Create a basic browser rendered level with two keyboard controller characters.  
 ##V2: Done
 Introduce WebGL rendering in favor of debug draw.  This will involve adding camera functionality to follow the player (player 1 anyways, player 2 won't be so lucky). Render some basic solids for the walls and a simple animated sprite for the players.  Add some (potentially) moving platforms to add vertical depth do the level.
 
-##V3: Planned
+##V3: In Progress
 Introduce networking via NodeJs.  Remove player 2 from the game.  Maintain game state on the server while rendering that state on each client.  Connect the two players through some well known url on the web server.
 
 Update: After doing some initial research for networking physics simulations, I've decided to drop box2d in favor of a handrolled implementation.  Tracking state and doing client side prediction using box2d would require me to really understand the internals of the library and possibly even modify the source code to have access to all the internals that I need.  The overhead of doing this is higher than writing my own simple physics classes to handle basics position integration and box collisions.  The goal is to keep the physics state as minimal as possible for increased performance in networking.
