@@ -9,11 +9,13 @@ SimplePhysicsManager.prototype = (function(){
 
         init: function() {
 
-        }
+        },
 
         update: function(time, dt) {
             this.entities.forEach(function(entity) { 
-                entity.update(time, dt); 
+                var body = entity.getBody();
+                if (body.bodyType != SimpleBody.STATIC_BODY)
+                    body.update(time, dt); 
             });
         }
     }

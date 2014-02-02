@@ -68,6 +68,9 @@ SimpleBody.prototype = function(){
     return {
         constructor: SimpleBody,
 
+        STATIC_BODY: 0,
+        DYNAMIC_BODY: 1,
+
         update: function(time, dt){
             this.state = bk4Integrate(this.state, time, dt);
         }
