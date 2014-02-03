@@ -12,9 +12,10 @@ function Wall(x, y, width, height, isGround) {
     this.halfWidth = this.width / 2;
     this.halfHeight = this.height / 2;
     this.body = new SimpleBody(
-        SimpleBody.STATIC_BODY, 
+        SimpleBody.prototype.STATIC_BODY, 
         width * height * this.DENSITY, 
         x, y);
+    this.body.addFixture(new SimpleBB(0, 0, this.width, this.height));
 }
 
 Wall.prototype = (function(){
@@ -22,11 +23,13 @@ Wall.prototype = (function(){
     return {
         constructor: Wall,
 
-        DENSITY: 50,
+        DENSITY: 5,
 
         // Initializes the wall entity, setting up any physics or common logic.
         // SimplePhysicsManager => void
         init: function(){
+            this.body.addCollisionHandler(collided);
+            this.body.addSeperationHandler(seperated);
         },
 
         // Gets the physics body for the entity.

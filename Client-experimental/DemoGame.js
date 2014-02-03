@@ -7,14 +7,13 @@ function DemoGame(){
 }
 
 DemoGame.prototype = (function() {
-	var 	LEVEL_WIDTH = 960
-		,	LEVEL_HEIGHT = 680
-		,	WALL_THICKNESS = 10
-		;
+	var LEVEL_WIDTH = 960,
+		LEVEL_HEIGHT = 680,
+		WALL_THICKNESS = 10;
 
-	var   b2World = Box2D.Dynamics.b2World
-		, b2Vec2 = Box2D.Common.Math.b2Vec2
-		;
+	var elapseTime = 0,
+		timeStep = 1 / 60,
+		timeStepSeconds = timeStep * 1000;
 
     function setupEntities() {
     	// Ground
@@ -30,7 +29,7 @@ DemoGame.prototype = (function() {
 	    this.entities.push(new Player(
 	    	{ 
 		    	x: (LEVEL_WIDTH / 3) / Settings.scale,
-		    	y: (LEVEL_HEIGHT - 100) / Settings.scale
+		    	y: (LEVEL_HEIGHT / 2 - 100) / Settings.scale
 		    },
 	    	65,  // a
 	    	68,  // d
@@ -40,7 +39,7 @@ DemoGame.prototype = (function() {
 	    this.entities.push(new Player(
 	    	{ 
 		    	x: (LEVEL_WIDTH  * 2 / 3) / Settings.scale,
-		    	y: (LEVEL_HEIGHT - 100) / Settings.scale
+		    	y: (LEVEL_HEIGHT / 2 - 100) / Settings.scale
 		    },
 	    	37,  // a
 	    	39,  // d
@@ -51,10 +50,10 @@ DemoGame.prototype = (function() {
 		constructor:DemoGame,
 
 		// The main game loop which will be called on each frame tick.
-		// => void
-		update: function() {
+		// float float => void
+		update: function(elapsedTime, timeStep) {
 			// update managers
-			this.physicsManager.update();
+			this.physicsManager.update(elapsedTime, timeStep);
 		},
 
 		// The main draw loop which will be called on each frame tick.
@@ -67,12 +66,7 @@ DemoGame.prototype = (function() {
 		// This is the game initialization.  At the end of init, the game object
 		// will start a timer interval which will control the game loop (see update).
 		// => void
-		init: function() {			   
-		    // Init world and its entities
-			this.world = new b2World(
-		        	new b2Vec2(0, 10)    //gravity
-		        ,   true                 //allow sleep
-		    );	    		    
+		init: function() {   		    
 		    setupEntities.call(this);		    
 
 		    // Init game components
@@ -88,10 +82,11 @@ DemoGame.prototype = (function() {
 		    // Initiates game loop.
 		    window.setInterval(
 		    	function() {
-			    	that.update();
+		    		elapseTime += timeStep;
+			    	that.update(elapseTime, timeStep);
 			    	that.draw();
 			    }, 
-			    1000 / 60);
+			    timeStepSeconds);
 		}
 	};
 })();
