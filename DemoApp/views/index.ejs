@@ -27,6 +27,12 @@
     <script type="text/javascript" src="javascripts/Player.js"></script>
     <script type="text/javascript" src="javascripts//Wall.js"></script>
     <script type="text/javascript" src="javascripts/DemoGame.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://localhost');
+        var d = new Date();
+        socket.emit('player join', { timestamp: d.getTime() });
+    </script>
     <script type="text/javascript">
         var Settings = { 
             useDebugDraw: true,
@@ -36,8 +42,8 @@
         };
 
         $(document).ready(function() {
-            var game = new DemoGame();
-            game.init();       
+            //var game = new DemoGame();
+            //game.init();       
         });
     </script>
     <script id="prim-frag-shader" type="x-shader/x-fragment">
