@@ -1,0 +1,598 @@
+[
+  {
+    "id": 0,
+    "name": "Lavender",
+    "scientificName": "Lavandula angustifolia",
+    "category": "herb",
+    "tagline": "The queen of calm — turning any garden corner into a fragrant sanctuary.",
+    "description": "Lavender is a beloved Mediterranean herb known for its intoxicating fragrance and stunning purple flower spikes. It attracts pollinators, repels pests, and thrives on neglect — making it perfect for both new and seasoned gardeners.",
+    "facts": [
+      "Ancient Egyptians used lavender in their mummification process.",
+      "A single lavender plant can live for over 15 years with proper care.",
+      "Lavender essential oil has been clinically shown to reduce anxiety and improve sleep quality.",
+      "The name 'lavender' comes from the Latin 'lavare,' meaning 'to wash.'"
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Low — drought tolerant once established",
+      "soil": "Well-drained, sandy or gravelly",
+      "hardiness": "Zones 5-9"
+    },
+    "plantingInfo": {
+      "bestSeason": "Spring (April-May)",
+      "germination": "14-21 days",
+      "spacing": "12-18 inches"
+    },
+    "careTips": [
+      "Don't overwater — lavender hates wet feet. Let soil dry between waterings.",
+      "Prune after flowering to maintain shape and encourage bushy growth.",
+      "Add gravel or sand to heavy clay soil to improve drainage.",
+      "Harvest flower stems just as the buds begin to open for the strongest scent."
+    ],
+    "companionPlants": ["Rosemary", "Thyme", "Sage", "Echinacea"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1611909023032-d28a86e36f60?w=800&q=80",
+        "alt": "Field of lavender in bloom with purple flower spikes",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=800&q=80",
+        "alt": "Close-up of lavender flower buds",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1563205668-e0e74cfb3090?w=800&q=80",
+        "alt": "Lavender growing in a garden border",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=lavender+seeds",
+        "type": "seeds"
+      },
+      {
+        "label": "Find live plants on Etsy",
+        "url": "https://www.etsy.com/search?q=lavender+live+plant",
+        "type": "plant"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Cherry Tomato",
+    "scientificName": "Solanum lycopersicum var. cerasiforme",
+    "category": "vegetable",
+    "tagline": "Little bursts of sunshine you can grow right on your patio.",
+    "description": "Cherry tomatoes are the gateway to vegetable gardening — prolific, forgiving, and irresistibly sweet straight off the vine. A single plant can produce hundreds of tiny fruits throughout the summer.",
+    "facts": [
+      "Cherry tomatoes are one of the closest relatives to wild tomatoes from South America.",
+      "A single cherry tomato plant can produce 200-300 fruits in one season.",
+      "Tomatoes were once considered poisonous in Europe and grown only as ornamentals.",
+      "They come in red, yellow, orange, green, purple, and even striped varieties."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (8+ hours)",
+      "water": "Regular — consistent moisture is key",
+      "soil": "Rich, well-drained, slightly acidic (pH 6.0-6.8)",
+      "hardiness": "Zones 3-11 (annual)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Late spring after last frost",
+      "germination": "5-10 days",
+      "spacing": "24-36 inches",
+      "daysToHarvest": "60-75 days"
+    },
+    "careTips": [
+      "Use a cage or stake — cherry tomatoes grow tall and need support.",
+      "Water at the base, not the leaves, to prevent fungal disease.",
+      "Pinch off suckers (side shoots) for larger, earlier fruit.",
+      "Pick regularly to encourage continuous production all season."
+    ],
+    "companionPlants": ["Basil", "Marigold", "Carrot", "Parsley"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1592841200221-a6898f307baa?w=800&q=80",
+        "alt": "Ripe cherry tomatoes on the vine in warm sunlight",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+        "alt": "Handful of freshly picked cherry tomatoes",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=800&q=80",
+        "alt": "Cherry tomato plant growing in a garden",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=cherry+tomato+seeds",
+        "type": "seeds"
+      },
+      {
+        "label": "Find live plants on Etsy",
+        "url": "https://www.etsy.com/search?q=cherry+tomato+live+plant",
+        "type": "plant"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Sunflower",
+    "scientificName": "Helianthus annuus",
+    "category": "flower",
+    "tagline": "A towering symbol of joy that follows the sun across the sky.",
+    "description": "Sunflowers are the ultimate cheerful garden giant. Easy to grow from seed, they shoot up quickly and reward you with massive golden blooms that attract bees, butterflies, and birds. Kids and adults alike love watching them race toward the sky.",
+    "facts": [
+      "Young sunflowers exhibit heliotropism — they track the sun from east to west each day.",
+      "A single sunflower head can contain up to 2,000 seeds arranged in perfect Fibonacci spirals.",
+      "Sunflowers can be used to clean radioactive soil — a process called phytoremediation.",
+      "Kansas is known as the 'Sunflower State' and Ukraine's national flower is the sunflower."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Moderate — deep watering once a week",
+      "soil": "Well-drained, average to rich",
+      "hardiness": "Zones 2-11 (annual)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Spring (after last frost)",
+      "germination": "7-10 days",
+      "spacing": "6-24 inches depending on variety",
+      "daysToHarvest": "70-100 days"
+    },
+    "careTips": [
+      "Sow seeds directly outdoors — sunflowers don't like being transplanted.",
+      "Stake tall varieties to prevent them from toppling in wind.",
+      "Leave spent flower heads on the stalk in fall to feed birds.",
+      "Plant in succession every 2 weeks for continuous blooms all summer."
+    ],
+    "companionPlants": ["Cucumber", "Squash", "Corn", "Zinnia"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800&q=80",
+        "alt": "Bright yellow sunflower against blue sky",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551731956-6c8d5f tried?w=800&q=80",
+        "alt": "Close-up of sunflower center showing seed pattern",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=800&q=80",
+        "alt": "Field of sunflowers in golden hour light",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=sunflower+seeds+garden",
+        "type": "seeds"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Strawberry",
+    "scientificName": "Fragaria × ananassa",
+    "category": "fruit",
+    "tagline": "Sweet jewels that turn any sunny spot into a berry patch.",
+    "description": "Strawberries are a garden favorite that deliver big flavor from small plants. They're perfect for containers, raised beds, or ground cover, and nothing beats the taste of a sun-warmed strawberry picked fresh from your own garden.",
+    "facts": [
+      "Strawberries are the only fruit with seeds on the outside — about 200 per berry.",
+      "They're actually members of the rose family.",
+      "A strawberry plant can produce fruit for 5-6 years before needing replacement.",
+      "Ancient Romans believed strawberries had medicinal powers for everything from depression to kidney stones."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Regular — 1-1.5 inches per week",
+      "soil": "Rich, well-drained, slightly acidic (pH 5.5-6.8)",
+      "hardiness": "Zones 3-10"
+    },
+    "plantingInfo": {
+      "bestSeason": "Early spring or fall",
+      "germination": "14-28 days (from seed) or plant crowns",
+      "spacing": "12-18 inches",
+      "daysToHarvest": "60-90 days from flowering"
+    },
+    "careTips": [
+      "Mulch heavily with straw to keep berries off the soil and prevent rot.",
+      "Remove runners in the first year to help plants establish strong roots.",
+      "Net your plants to protect berries from birds.",
+      "Renovate beds after harvest by trimming leaves and thinning plants."
+    ],
+    "companionPlants": ["Borage", "Lettuce", "Spinach", "Thyme"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=800&q=80",
+        "alt": "Ripe red strawberries growing in a garden",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1543528176-61b239494933?w=800&q=80",
+        "alt": "Close-up of a perfect ripe strawberry",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?w=800&q=80",
+        "alt": "Strawberry plant with white blossoms",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find plants on Etsy",
+        "url": "https://www.etsy.com/search?q=strawberry+plants",
+        "type": "plant"
+      },
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=strawberry+seeds",
+        "type": "seeds"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Basil",
+    "scientificName": "Ocimum basilicum",
+    "category": "herb",
+    "tagline": "The aromatic heart of every kitchen garden.",
+    "description": "Basil is the essential culinary herb — fragrant, fast-growing, and endlessly versatile. From classic Genovese to Thai, purple, and lemon varieties, there's a basil for every dish and every garden style.",
+    "facts": [
+      "Basil is considered sacred in Hindu culture and is often grown near temples.",
+      "The word 'basil' comes from the Greek 'basileus,' meaning 'king.'",
+      "Basil can repel mosquitoes and flies — try placing a pot near your outdoor dining area.",
+      "There are over 60 varieties of basil grown worldwide."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Regular — keep soil consistently moist",
+      "soil": "Rich, well-drained, moist",
+      "hardiness": "Zones 2-11 (annual)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Late spring (after last frost)",
+      "germination": "5-10 days",
+      "spacing": "12-18 inches",
+      "daysToHarvest": "50-75 days"
+    },
+    "careTips": [
+      "Pinch off flower buds as they appear to keep leaves producing all season.",
+      "Harvest from the top down — cut above a leaf pair to encourage branching.",
+      "Basil loves heat — don't plant until nighttime temps are consistently above 50°F.",
+      "Grow near tomatoes — they're perfect garden (and kitchen) companions."
+    ],
+    "companionPlants": ["Tomato", "Pepper", "Oregano", "Marigold"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1629157282084-74b82f6e1827?w=800&q=80",
+        "alt": "Fresh green basil plant with large aromatic leaves",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1618375531912-867984bdfd16?w=800&q=80",
+        "alt": "Basil growing in a terracotta pot",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1591105575077-ef23ebd6cc43?w=800&q=80",
+        "alt": "Close-up of basil leaves glistening with water drops",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=basil+seeds",
+        "type": "seeds"
+      },
+      {
+        "label": "Find live plants on Etsy",
+        "url": "https://www.etsy.com/search?q=basil+live+plant",
+        "type": "plant"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dahlia",
+    "scientificName": "Dahlia pinnata",
+    "category": "flower",
+    "tagline": "Nature's most elaborate showstopper — each bloom a tiny masterpiece.",
+    "description": "Dahlias are the divas of the flower garden, producing an astonishing variety of bloom shapes and colors from midsummer through fall frost. From dinner-plate giants to dainty pompoms, there's a dahlia for every taste.",
+    "facts": [
+      "Dahlias are the national flower of Mexico, where they've been cultivated since the Aztec empire.",
+      "There are over 42,000 registered dahlia varieties in every color except true blue.",
+      "Dahlia tubers were originally brought to Europe as a food crop, not a flower.",
+      "A single dahlia plant can produce dozens of blooms from one tuber."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Moderate — consistent moisture, don't let dry out",
+      "soil": "Rich, well-drained, slightly acidic",
+      "hardiness": "Zones 8-11 (dig tubers in colder zones)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Spring (after last frost, soil above 60°F)",
+      "germination": "Tubers sprout in 2-4 weeks",
+      "spacing": "18-24 inches"
+    },
+    "careTips": [
+      "Pinch the center shoot when plants are 12 inches tall to encourage bushier growth.",
+      "Stake tall varieties early — don't wait until they flop.",
+      "Deadhead spent blooms regularly to keep new flowers coming.",
+      "In cold climates, dig up tubers after first frost and store in a cool, dry place."
+    ],
+    "companionPlants": ["Zinnia", "Cosmos", "Salvia", "Coneflower"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1536238349546-9413b2c4e834?w=800&q=80",
+        "alt": "Vibrant pink dahlia bloom in full flower",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=800&q=80",
+        "alt": "Close-up of dahlia petals showing intricate pattern",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1535567465397-7523840f2ae9?w=800&q=80",
+        "alt": "Colorful dahlia garden with mixed varieties",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find tubers on Etsy",
+        "url": "https://www.etsy.com/search?q=dahlia+tubers",
+        "type": "bulb"
+      },
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=dahlia+seeds",
+        "type": "seeds"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Sugar Snap Pea",
+    "scientificName": "Pisum sativum var. macrocarpon",
+    "category": "vegetable",
+    "tagline": "Crunchy, sweet, and impossible not to snack on straight from the vine.",
+    "description": "Sugar snap peas are one of spring's greatest pleasures — you eat the whole pod, shell and all, and they're so sweet they rarely make it inside from the garden. They're quick to grow, fun to climb, and perfect for cool-season gardening.",
+    "facts": [
+      "Sugar snap peas were only invented in 1979 by crossing snow peas with garden peas.",
+      "Peas are nitrogen fixers — they actually improve soil fertility as they grow.",
+      "They were one of the plants Gregor Mendel used to discover the laws of genetics.",
+      "Pea tendrils (the curly climbing tips) are a gourmet delicacy in restaurants."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun to partial shade",
+      "water": "Regular — keep soil evenly moist",
+      "soil": "Well-drained, average fertility",
+      "hardiness": "Zones 3-11 (cool-season annual)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Early spring (4-6 weeks before last frost)",
+      "germination": "7-14 days",
+      "spacing": "2-4 inches",
+      "daysToHarvest": "55-70 days"
+    },
+    "careTips": [
+      "Provide a trellis or fence — snap peas climb 4-6 feet and need support.",
+      "Plant as early as soil can be worked — peas love cool weather.",
+      "Pick pods when they're plump but before seeds bulge too much for best sweetness.",
+      "Sow a second crop in late summer for a fall harvest."
+    ],
+    "companionPlants": ["Carrot", "Radish", "Cucumber", "Mint"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590005354167-6da97870c757?w=800&q=80",
+        "alt": "Fresh sugar snap peas hanging from the vine",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80",
+        "alt": "Bowl of freshly harvested snap peas",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1592394533824-9440e5d68530?w=800&q=80",
+        "alt": "Pea plant flowers in bloom",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=sugar+snap+pea+seeds",
+        "type": "seeds"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Blueberry",
+    "scientificName": "Vaccinium corymbosum",
+    "category": "fruit",
+    "tagline": "A backyard superfruit that gets sweeter with every passing year.",
+    "description": "Blueberry bushes are a long-term garden investment that pays off deliciously — they produce more fruit each year, live for decades, and turn stunning shades of red and orange in autumn. Plus, nothing at the grocery store compares to a fresh-picked blueberry.",
+    "facts": [
+      "Blueberries are one of only a handful of fruits native to North America.",
+      "A mature blueberry bush can produce 5-10 pounds of berries per year.",
+      "Blueberries are one of the highest antioxidant foods in the world.",
+      "They weren't commercially cultivated until 1916 — before that, they were only wild-harvested."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Regular — 1-2 inches per week",
+      "soil": "Acidic (pH 4.5-5.5), rich in organic matter",
+      "hardiness": "Zones 3-9"
+    },
+    "plantingInfo": {
+      "bestSeason": "Early spring or fall",
+      "germination": "Plant bare-root or potted bushes",
+      "spacing": "4-6 feet between bushes"
+    },
+    "careTips": [
+      "Acidify soil with sulfur or pine needle mulch — blueberries need acidic conditions.",
+      "Plant at least two different varieties for cross-pollination and bigger harvests.",
+      "Use netting to protect ripe berries from birds.",
+      "Prune out old, unproductive canes in late winter to encourage new growth."
+    ],
+    "companionPlants": ["Azalea", "Rhododendron", "Strawberry", "Thyme"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=800&q=80",
+        "alt": "Ripe blueberries on the bush ready to pick",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1457296898342-cdd24585d095?w=800&q=80",
+        "alt": "Close-up of blueberry cluster with morning dew",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1425934398893-310a009a77f9?w=800&q=80",
+        "alt": "Bowl of fresh blueberries",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find plants on Etsy",
+        "url": "https://www.etsy.com/search?q=blueberry+bush+plant",
+        "type": "plant"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Rosemary",
+    "scientificName": "Salvia rosmarinus",
+    "category": "herb",
+    "tagline": "An evergreen companion that fills the garden with Mediterranean warmth.",
+    "description": "Rosemary is one of the most rewarding herbs to grow — aromatic, drought-tolerant, beautiful year-round, and endlessly useful in the kitchen. It can grow as a bushy shrub, a trailing ground cover, or even a small topiary.",
+    "facts": [
+      "Rosemary has been associated with memory since ancient Greece — students wore rosemary garlands during exams.",
+      "It can live for 20+ years and grow into a large woody shrub.",
+      "Rosemary blooms attract bees and beneficial insects to the garden.",
+      "In folklore, rosemary planted by the front door was said to ward off evil spirits."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6-8 hours)",
+      "water": "Low — drought tolerant, let soil dry between waterings",
+      "soil": "Well-drained, sandy or rocky",
+      "hardiness": "Zones 7-10 (or grow in pots in colder zones)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Spring",
+      "germination": "15-25 days (slow from seed — cuttings are faster)",
+      "spacing": "24-36 inches"
+    },
+    "careTips": [
+      "Overwatering is the #1 killer — rosemary prefers to be slightly dry.",
+      "Bring potted plants indoors before first frost in cold climates.",
+      "Prune regularly for the freshest growth and to prevent woody bare stems.",
+      "Propagate easily from 4-inch stem cuttings in water or moist sand."
+    ],
+    "companionPlants": ["Lavender", "Sage", "Thyme", "Bean"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800&q=80",
+        "alt": "Rosemary bush with needle-like leaves",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1607877742574-a3d2b750f718?w=800&q=80",
+        "alt": "Rosemary sprigs with small blue flowers",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580153785328-82aa01834439?w=800&q=80",
+        "alt": "Fresh rosemary on a wooden cutting board",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find plants on Etsy",
+        "url": "https://www.etsy.com/search?q=rosemary+live+plant",
+        "type": "plant"
+      },
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=rosemary+seeds",
+        "type": "seeds"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Zinnia",
+    "scientificName": "Zinnia elegans",
+    "category": "flower",
+    "tagline": "The easiest cut flower you'll ever grow — and butterflies can't resist them.",
+    "description": "Zinnias are the ultimate beginner-friendly flower. They germinate in days, bloom in weeks, and keep producing colorful cut flowers all summer long. They come in almost every color and are magnets for butterflies and hummingbirds.",
+    "facts": [
+      "Zinnias were the first flowers ever grown in space — aboard the International Space Station in 2016.",
+      "They're named after German botanist Johann Gottfried Zinn.",
+      "The more you cut zinnias, the more flowers they produce.",
+      "They're native to Mexico and the southwestern United States."
+    ],
+    "growingConditions": {
+      "sunlight": "Full sun (6+ hours)",
+      "water": "Moderate — water at base, avoid wetting leaves",
+      "soil": "Well-drained, average to rich",
+      "hardiness": "Zones 2-11 (annual)"
+    },
+    "plantingInfo": {
+      "bestSeason": "Late spring (after last frost)",
+      "germination": "4-7 days",
+      "spacing": "4-12 inches depending on variety",
+      "daysToHarvest": "60-70 days to first bloom"
+    },
+    "careTips": [
+      "Direct sow seeds — zinnias grow so fast there's no need to start indoors.",
+      "Space plants for good air circulation to prevent powdery mildew.",
+      "Cut flowers early in the morning for the longest vase life.",
+      "Deadhead regularly or cut for bouquets to keep blooms coming."
+    ],
+    "companionPlants": ["Sunflower", "Dahlia", "Tomato", "Nasturtium"],
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1536940385103-c729049165e6?w=800&q=80",
+        "alt": "Colorful zinnia blooms in pink, orange, and red",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1536238349546-c54ab1e4b7cb?w=800&q=80",
+        "alt": "Butterfly landing on a bright zinnia flower",
+        "credit": "Photo on Unsplash"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1567748157439-651aca5c7c88?w=800&q=80",
+        "alt": "Garden row of mixed zinnia varieties",
+        "credit": "Photo on Unsplash"
+      }
+    ],
+    "purchaseLinks": [
+      {
+        "label": "Find seeds on Etsy",
+        "url": "https://www.etsy.com/search?q=zinnia+seeds+mix",
+        "type": "seeds"
+      }
+    ]
+  }
+]

@@ -1,24 +1,73 @@
-##About
-This repository is used as a sandbox for learning NodeJS, Canvas/WebGL, Box2Djs, Express (and potentially other MV* libraries) and general javascript design patterns.  For now the demo is a "game" in the loosest sense of the word, in that it consists of two player controlled characters who can jump around.  The end goal is to have a multiplayer "game" that runs in the browser and is networked between players.  It will hopefully have some sort of web app to act as a "lobby" for players to connect with each other.
+# React + TypeScript + Vite
 
-Plan of action:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-##V1: Done
-Create a basic browser rendered level with two keyboard controller characters.  The level will just be a boxed in room.  The players will share a keyboard within a single browser.  Realtime game physics will be integrated via Box2Djs, a port of Box2D originally designed in C.  The rendering will be handled with Box2Djs's b2DebugDraw engine.  I'm not entirely sure how it works under the hood, but it hooks into the HTML canvas and uses basic primitive renderings to draw physics objects.
+Currently, two official plugins are available:
 
-##V2: Done
-Introduce WebGL rendering in favor of debug draw.  This will involve adding camera functionality to follow the player (player 1 anyways, player 2 won't be so lucky). Render some basic solids for the walls and a simple animated sprite for the players.  Add some (potentially) moving platforms to add vertical depth do the level.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-##V3: In Progress
-Introduce networking via NodeJs.  Remove player 2 from the game.  Maintain game state on the server while rendering that state on each client.  Connect the two players through some well known url on the web server.
+## React Compiler
 
-Update: After doing some initial research for networking physics simulations, I've decided to drop box2d in favor of a handrolled implementation.  Tracking state and doing client side prediction using box2d would require me to really understand the internals of the library and possibly even modify the source code to have access to all the internals that I need.  The overhead of doing this is higher than writing my own simple physics classes to handle basics position integration and box collisions.  The goal is to keep the physics state as minimal as possible for increased performance in networking.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-##V4: Planned
-Introduce a lobby system via Express or some MV* framework on top Express.  The lobby will allow players to create game instances and connect with other players.  I doubt I'll implement any sort of matchmaking, more likely it'll will be explicit "hey buddy, here's my game instance url" kind of a deal.
+## Expanding the ESLint configuration
 
-##V5: Speculative
-Refactor the major game components into a reusable/pluggable game engine. See my now defunct "Pancakes" repo.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-##V6: Super Speculative
-Create an in browser level editor that allows custom scripts for programming game logic and.  All of this will be stored in the backend and potentially even collaborative (DerbyJs).
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
